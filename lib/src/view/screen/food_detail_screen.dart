@@ -66,7 +66,7 @@ class FoodDetailScreen extends StatelessWidget {
       bottomNavigationBar: BottomAppBar(
         color: Colors.transparent,
         child: SizedBox(
-          height: height * 0.5,
+          height: height * 0.55,
           child: Container(
             decoration: BoxDecoration(
               color: controller.isLightTheme
@@ -140,7 +140,7 @@ class FoodDetailScreen extends StatelessWidget {
                         )
                       ],
                     ).fadeAnimation(0.6),
-                    const SizedBox(height: 15),
+                    const SizedBox(height: 5),
                     Text(
                       "Description",
                       style: Theme.of(context).textTheme.displayMedium,

@@ -15,13 +15,32 @@ class AppData {
       "industry. Lorem Ipsum has been the industry's standard dummy text ever "
       "since the 1500s, when an unknown printer took a galley of type and "
       "scrambled it to make a type specimen book. It has survived not only five "
-      "centuries, but also the leap into electronic typesetting, remaining "
-      "essentially unchanged. It was popularised in the 1960s with the release "
-      "of Letraset sheets containing Lorem Ipsum passages, and more recently "
-      "with desktop publishing software like Aldus PageMaker including versions "
+
       "of Lorem Ipsum.";
 
   static List<Food> foodItems = [
+    Food(
+      AppAsset.kebab2,
+      "Kebab special",
+      20.0,
+      1,
+      false,
+      dummyText,
+      5.0,
+      FoodType.kebab,
+      560,
+    ),
+    Food(
+      AppAsset.kebab1,
+      "Kebab One",
+      20.0,
+      1,
+      false,
+      dummyText,
+      5.0,
+      FoodType.kebab,
+      560,
+    ),
     Food(
       AppAsset.beef_burger,
       "Beef Burger",
@@ -35,7 +54,7 @@ class AppData {
     ),
     Food(
       AppAsset.big_appetizing_hamburger,
-      "Big Appetizing Hamburger",
+      "Big Hamburger",
       15.0,
       1,
       false,
@@ -254,28 +273,7 @@ class AppData {
       FoodType.kebab,
       560,
     ),
-    Food(
-      AppAsset.kebab2,
-      "Kebab special",
-      20.0,
-      1,
-      false,
-      dummyText,
-      5.0,
-      FoodType.kebab,
-      560,
-    ),
-    Food(
-      AppAsset.kebab1,
-      "Kebab One",
-      20.0,
-      1,
-      false,
-      dummyText,
-      5.0,
-      FoodType.kebab,
-      560,
-    ),
+
   ];
 
   static List<BottomNavigationItem> bottomNavigationItems = [

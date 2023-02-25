@@ -12,6 +12,6 @@ class LightThemeColor {
 
   static const primaryDark = Color(0xFFFFFFFF);
   static const primaryLight = Color(0xFFf3f6fa);
-  static const accent = Color(0xFFFD8629);
-  static const yellow = Color(0xFFFFBA49);
+  static const accent = Color(0xFFB70378);
+  static const yellow = Color(0xFF517CFA);
 }

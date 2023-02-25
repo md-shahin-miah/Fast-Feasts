@@ -48,7 +48,7 @@ class FoodListScreen extends StatelessWidget {
 
   Widget _searchBar() {
     return const Padding(
-      padding: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+      padding: EdgeInsets.symmetric(vertical: 15, horizontal: 10),
       child: TextField(
         decoration: InputDecoration(
           hintText: 'Search food',
@@ -63,102 +63,112 @@ class FoodListScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _appBar(context),
-      body: Padding(
-        padding: const EdgeInsets.all(20),
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                "Morning, Shahin",
-                style: Theme.of(context).textTheme.headlineSmall,
-              ).fadeAnimation(0.2),
-              Text(
-                "What do you want to eat \ntoday",
-                style: Theme.of(context).textTheme.displayLarge,
-              ).fadeAnimation(0.4),
-              _searchBar(),
-              Text(
-                "Available for you",
-                style: Theme.of(context).textTheme.displaySmall,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 15),
-                child: SizedBox(
-                  height: 40,
-                  child: GetBuilder(
-                    builder: (FoodController controller) {
-                      return ListView.separated(
-                        scrollDirection: Axis.horizontal,
-                        itemCount: AppData.categories.length,
-                        itemBuilder: (_, index) {
-                          FoodCategory category = AppData.categories[index];
-                          return GestureDetector(
-                            onTap: () {
-                              controller.filterItemByCategory(category);
-                            },
-                            child: Container(
-                              width: 100,
-                              alignment: Alignment.center,
-                              padding: const EdgeInsets.all(10),
-                              decoration: BoxDecoration(
-                                color: category.isSelected
-                                    ? LightThemeColor.accent
-                                    : Colors.transparent,
-                                borderRadius: const BorderRadius.all(
-                                  Radius.circular(15),
-                                ),
-                              ),
-                              child: Text(
-                                category.type.name.toCapital,
-                                style:
-                                    Theme.of(context).textTheme.headlineMedium,
-                              ),
-                            ),
-                          );
-                        },
-                        separatorBuilder: (_, __) {
-                          return const Padding(
-                            padding: EdgeInsets.only(right: 15),
-                          );
-                        },
-                      );
-                    },
-                  ),
-                ),
-              ),
-              GetBuilder(
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+           Padding(
+
+             padding: EdgeInsets.symmetric(horizontal: 15),
+             child: Column(
+               crossAxisAlignment: CrossAxisAlignment.start,
+
+               children: [
+                 Text(
+                   "Morning, Shahin",
+                   style: Theme.of(context).textTheme.headlineSmall,
+                 ).fadeAnimation(0.2),
+                 Text(
+                   "What do you want to eat \ntoday",
+                   style: Theme.of(context).textTheme.displayLarge,
+                 ).fadeAnimation(0.4),
+                 _searchBar(),
+                 Text(
+                   "Available for you",
+                   style: Theme.of(context).textTheme.displaySmall,
+                 ),
+                 Padding(
+                   padding: const EdgeInsets.only(top: 10),
+                   child: SizedBox(
+                     height: 40,
+                     child: GetBuilder(
+                       builder: (FoodController controller) {
+                         return ListView.separated(
+                           scrollDirection: Axis.horizontal,
+                           itemCount: AppData.categories.length,
+                           itemBuilder: (_, index) {
+                             FoodCategory category = AppData.categories[index];
+                             return GestureDetector(
+                               onTap: () {
+                                 controller.filterItemByCategory(category);
+                               },
+                               child: Container(
+                                 width: 100,
+                                 alignment: Alignment.center,
+                                 padding: const EdgeInsets.all(10),
+                                 decoration: BoxDecoration(
+                                   color: category.isSelected
+                                       ? Colors.yellowAccent
+                                       : Colors.transparent,
+                                   borderRadius: const BorderRadius.all(
+                                     Radius.circular(15),
+                                   ),
+                                 ),
+                                 child: Text(
+                                   category.type.name.toCapital,
+                                   style:
+                                   Theme.of(context).textTheme.headlineMedium,
+                                 ),
+                               ),
+                             );
+                           },
+                           separatorBuilder: (_, __) {
+                             return const Padding(
+                               padding: EdgeInsets.only(right: 15),
+                             );
+                           },
+                         );
+                       },
+                     ),
+                   ),
+                 ),
+               ],
+             ),
+           ),
+            Padding(
+              padding: const EdgeInsets.only(top: 8.0),
+              child: GetBuilder(
                 builder: (FoodController controller) {
-                  return Padding(
-                      padding: EdgeInsets.only(top: 15),
-                      child: FoodListView(foods: controller.filteredFoods));
+                  return FoodListView(foods: controller.filteredFoods);
                 },
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 25, bottom: 15),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "Best food of the week",
-                      style: Theme.of(context).textTheme.displaySmall,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 15, bottom: 15,left: 15),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Best food of the week",
+                    style: Theme.of(context).textTheme.displaySmall,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 20),
+                    child: Text(
+                      "See all",
+                      style: Theme.of(context)
+                          .textTheme
+                          .headlineMedium
+                          ?.copyWith(color: LightThemeColor.accent),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(right: 20),
-                      child: Text(
-                        "See all",
-                        style: Theme.of(context)
-                            .textTheme
-                            .headlineMedium
-                            ?.copyWith(color: LightThemeColor.accent),
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-              FoodListView(foods: AppData.foodItems, isReversedList: true),
-            ],
-          ),
+            ),
+            Padding(
+                padding: EdgeInsets.only(bottom: 20),
+                child: FoodListView(foods: AppData.foodItems, isReversedList: true)),
+          ],
         ),
       ),
     );

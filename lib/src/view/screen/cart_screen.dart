@@ -26,7 +26,7 @@ class CartScreen extends StatelessWidget {
   Widget _bottomAppBar(double height, double width, BuildContext context) {
     return BottomAppBar(
       child: SizedBox(
-        height: height * 0.32,
+        height: height * 0.30,
         child: Container(
           decoration: const BoxDecoration(
             borderRadius: BorderRadius.only(
@@ -35,7 +35,7 @@ class CartScreen extends StatelessWidget {
             ),
           ),
           child: Padding(
-            padding: const EdgeInsets.all(30),
+            padding: const EdgeInsets.only(left: 30,right: 30,top: 15,bottom:5),
             child: SingleChildScrollView(
               child: Column(
                 children: [
@@ -57,7 +57,7 @@ class CartScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                  const SizedBox(height: 15),
+                  const SizedBox(height: 5),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: Row(
@@ -76,7 +76,7 @@ class CartScreen extends StatelessWidget {
                   ),
                   const Padding(
                     padding: EdgeInsets.symmetric(horizontal: 20),
-                    child: Divider(thickness: 4.0, height: 30.0),
+                    child: Divider(thickness: 2.0, height: 30.0),
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -100,12 +100,12 @@ class CartScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                  const SizedBox(height: 30),
+                  const SizedBox(height: 20),
                   SizedBox(
                     width: double.infinity,
                     height: 45,
                     child: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: width * 0.1),
+                      padding: EdgeInsets.symmetric(horizontal: 15),
                       child: ElevatedButton(
                         onPressed: () {},
                         child: const Text("Checkout"),
@@ -123,7 +123,7 @@ class CartScreen extends StatelessWidget {
 
   Widget cartListView(BuildContext context) {
     return ListView.separated(
-      padding: const EdgeInsets.all(30),
+      padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 5),
       shrinkWrap: true,
       itemCount: controller.cartFood.length,
       itemBuilder: (_, index) {
@@ -160,9 +160,9 @@ class CartScreen extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                const SizedBox(width: 20),
+                const SizedBox(width: 10),
                 Image.asset(controller.cartFood[index].image, scale: 10),
-                const SizedBox(width: 20),
+                const SizedBox(width: 10),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [

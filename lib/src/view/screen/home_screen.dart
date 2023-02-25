@@ -1,3 +1,4 @@
+import 'package:fast_food_app/src/view/screen/profile.dart';
 import 'package:fast_food_app/src/view/screen/profile_screen.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +20,7 @@ class HomeScreen extends StatelessWidget {
     const FoodListScreen(),
     const CartScreen(),
     const FavoriteScreen(),
-    const ProfileScreen()
+    ProfileEightPage()
   ];
 
   @override

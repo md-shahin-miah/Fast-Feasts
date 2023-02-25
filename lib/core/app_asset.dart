@@ -33,8 +33,12 @@ class AppAsset {
   static const biriyani4 = "assets/images/biriyani5.png";
 
 
-  static const profileImage = "assets/images/profile_pic.png";
+  static const profileImage = "assets/images/messi.jpg";
   static const githubImage = "assets/images/github_pic.png";
   static const emptyCart = "assets/images/empty_cart.png";
   static const emptyFavorite = "assets/images/empty_favorite.png";
+  static const avatar = "assets/images/github_pic.png";
+
+
+
 }
